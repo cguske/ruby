@@ -1,0 +1,30 @@
+<script>
+function add()
+{
+	<% addOne() %>
+}
+
+function sub()
+{
+	<% subOne() %>
+}
+
+</script>
+<% store = @stores.find(1) %>
+<div align="center">
+	<h1><%= store.name %></h1>
+	<p>Phone:<%= store.contact %></p>
+</div>
+
+<% @jewels.each do |jewel| %>
+<hr/>
+	<div align='center'>
+		<img src='<%= jewel.picture %>'>
+		<h3><%= jewel.name %>: <%= jewel.price %></h3>
+		<%= jewel.description %>
+		<br/><br/>
+			QTY:<%= jewel.quantity %>
+			<button id="b" onclick='add'>Buy</button>
+			<button id="s" onclick='sub'>Sell</button>
+	</div>
+<% end %>
